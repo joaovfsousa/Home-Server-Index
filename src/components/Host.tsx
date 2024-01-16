@@ -20,36 +20,48 @@ export const Host: FC<HostProps> = ({ host }) => {
 
   if (hasMultipleDomains) {
     return (
-      <div className="flex flex-col items-center  mb-2">
+      <li className="mb-3">
         <h1 className="text-2xl">{host.name}</h1>
-        <ul>
+        <ul className="list-disc list-inside">
           {host.domainNames.map((domainName) => (
-            <li key={domainName}>
-              <div className="flex flex-row self-center space-x-2 mb-2">
-                <a href={formatDomainName(domainName, host)}>
-                  <h1 className="text-l">{domainName}</h1>
-                </a>
-                <a href={formatDomainName(domainName, host)} target="_blank">
-                  <h1 className="text-l">🛫</h1>
-                </a>
-              </div>
+            <li key={domainName} className="mb-2">
+              <a
+                href={formatDomainName(domainName, host)}
+                className="inline-block mr-3"
+              >
+                <h1 className="text-l">{domainName}</h1>
+              </a>
+              <a
+                href={formatDomainName(domainName, host)}
+                target="_blank"
+                className="inline-block"
+              >
+                <h1 className="text-l">🛫</h1>
+              </a>
             </li>
           ))}
         </ul>
-      </div>
+      </li>
     );
   }
 
   const [domainName] = host.domainNames;
 
   return (
-    <div className="flex flex-row self-center space-x-2 mb-2">
-      <a href={formatDomainName(domainName, host)}>
+    <li className="mb-3">
+      <a
+        href={formatDomainName(domainName, host)}
+        className="inline-block mr-3"
+      >
         <h1 className="text-2xl">{host.name}</h1>
       </a>
-      <a href={formatDomainName(domainName, host)} target="_blank">
+      <a
+        href={formatDomainName(domainName, host)}
+        target="_blank"
+        className="inline-block"
+      >
         <h1 className="text-2xl">🛫</h1>
       </a>
-    </div>
+    </li>
   );
 };

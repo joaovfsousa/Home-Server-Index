@@ -7,12 +7,14 @@ export default async function Home() {
   const hosts = await getHosts();
 
   return (
-    <div className="h-lvh bg-red-500 flex flex-col justify-center text-center">
-      <h1 className="text-4xl font-bold mb-8">Services</h1>
+    <div className="h-lvh flex flex-col justify-center mx-auto items-center">
+      <h1 className="text-4xl font-bold mb-8 text-violet-600">Services</h1>
 
-      {hosts.map((host) => (
-        <Host host={host} key={host.name} />
-      ))}
+      <ul className="text-violet-400 list-disc">
+        {hosts.map((host) => (
+          <Host host={host} key={host.name} />
+        ))}
+      </ul>
     </div>
   );
 }
