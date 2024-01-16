@@ -27,6 +27,7 @@ export const Host: FC<HostProps> = ({ host }) => {
             <li key={domainName} className="mb-2">
               <a
                 href={formatDomainName(domainName, host)}
+                target="_self"
                 className="inline-block mr-3"
               >
                 <h1 className="text-l">{domainName}</h1>
@@ -51,6 +52,7 @@ export const Host: FC<HostProps> = ({ host }) => {
     <li className="mb-3">
       <a
         href={formatDomainName(domainName, host)}
+        target="_self"
         className="inline-block mr-3"
       >
         <h1 className="text-2xl">{host.name}</h1>
