@@ -11,8 +11,10 @@ const formatDomainName = (domainName: string, host: HostType) => {
   return `${protocol}://${domainName}`;
 };
 
+const ignoreList = process.env.IGNORE_LIST?.split(",") ?? [];
+
 export const Host: FC<HostProps> = ({ host }) => {
-  if (host.domainNames.length === 0) {
+  if (host.domainNames.length === 0 || ignoreList.includes(host.name)) {
     return null;
   }
 
